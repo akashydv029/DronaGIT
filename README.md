@@ -57,15 +57,17 @@ Use the correct structure based on your resource type:
 
 #### 📋 Required Fields
 
-| Field       | Required        | Description                                          |
-| ----------- | --------------- | ---------------------------------------------------- |
-| `type`      | ✅               | `notes`, `papers`, `syllabus`, `practicals`          |
-| `title`     | ✅               | Title of the resource                                |
-| `subject`   | ✅               | Subject name                                         |
-| `branch`    | ✅               | e.g. `["CSE"]`, `["AIML"]`, `["ECE"]`                |
-| `semester`  | ✅               | Semester number                                      |
-| `year`      | ✅ (papers only) | Year of paper                                        |
-| `paperType` | ✅ (papers only) | `Sessional`, `University`, `Pre University`, `Other` |
+| Field        | Required                  | Description                                                |
+| ------------ | ------------------------- | ---------------------------------------------------------- |
+| `action`     | ❌ (defaults to `create`) | Operation to perform: `create`, `edit`, or `delete`        |
+| `resourceId` | ✅ (for edit/delete only) | The unique ID of the resource to modify or delete          |
+| `type`       | ✅ (for create)           | `notes`, `papers`, `syllabus`, `practicals`                |
+| `title`      | ✅ (for create)           | Title of the resource                                      |
+| `subject`    | ✅ (for create)           | Subject name                                               |
+| `branch`     | ✅ (for create)           | e.g. `["CSE"]`, `["AIML"]`, `["ECE"]`                      |
+| `semester`   | ✅ (for create)           | Semester number                                            |
+| `year`       | ✅ (papers only)          | Year of paper                                              |
+| `paperType`  | ✅ (papers only)          | `Sessional`, `University`, `Pre University`, `Other`       |
 
 ---
 
@@ -101,7 +103,7 @@ Use the correct structure based on your resource type:
 
 ### ✏️ Example — Edit Resource
 
-To edit a resource's metadata, use `"action": "edit"` and provide the `resourceId` along with the fields you want to update. **No PDF is required or allowed** for edits.
+To edit a resource's metadata, use `"action": "edit"` and provide the `resourceId` along with the fields you want to update. **No PDF is required or allowed** for edits. 
 
 ```json
 {
